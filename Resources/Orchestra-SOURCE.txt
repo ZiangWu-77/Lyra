@@ -1,0 +1,21 @@
+Ludwig van Beethoven: Symphony No. 5 in C minor, Op. 67
+First movement: Allegro con brio
+Recording credited to Skidmore College Orchestra, via Musopen.
+
+Source and recording permission, retrieved 2026-11-22:
+https://commons.wikimedia.org/wiki/File:Ludwig_van_Beethoven_-_symphony_no._5_in_c_minor,_op._67_-_i._allegro_con_brio.ogg
+
+The source page separately identifies the composition as public domain and
+the recording as released into the public domain by Skidmore College orchestra.
+It additionally lists permission for reuse/derivatives/commercial use with attribution.
+This notice retains the performer, composer and source attribution.
+Recording is not covered by the project's MIT software license.
+
+Original audio:
+https://upload.wikimedia.org/wikipedia/commons/e/e6/Ludwig_van_Beethoven_-_symphony_no._5_in_c_minor%2C_op._67_-_i._allegro_con_brio.ogg
+Stored in SampleSources/beethoven5.ogg for offline regeneration.
+
+Local changes: decode to stereo 44.1 kHz 16-bit PCM, remove leading silence,
+take the opening minute, lower peak to 32%, apply 15 ms fades only at the
+outer boundaries. The recording is continuous, without periodic cuts or fades. Pitch and playback rate remain unchanged.
+The app contains no download or network playback code.

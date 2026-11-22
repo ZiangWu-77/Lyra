@@ -1,0 +1,14 @@
+Cat Meow — qubodup, Freesound sound 813119
+https://freesound.org/people/qubodup/sounds/813119/
+License as displayed on the sound page: CC0 1.0
+https://creativecommons.org/publicdomain/zero/1.0/
+The author describes this as a cut, single-channel, normalized and faded version
+of Cat Call (Meow), a CC0 recording by Jofae.
+
+Source preview file, downloaded 2026-11-21:
+https://cdn.freesound.org/previews/813/813119_71257-hq.mp3
+Stored in SampleSources/cat-meow-qubodup.mp3 for offline regeneration.
+Local changes: decode to mono 44.1 kHz PCM, limit peak to 45%, apply 5 ms fades.
+Pitch and duration preserved. The release segment is silent.
+This recording is CC0, separate from the project's MIT software license.
+No network retrieval occurs during app execution or build.
