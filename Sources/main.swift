@@ -5,7 +5,7 @@ import ServiceManagement
 
 // The only startup path: network must be blocked before input can be observed.
 guard keytone_lock_network() == 0 else {
-    fputs("KeyTone: offline protection failed; refusing to start.\n", stderr)
+    fputs("Lyra: offline protection failed; refusing to start.\n", stderr)
     exit(70)
 }
 
@@ -293,18 +293,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     private func createMenu() {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        statusItem.button?.image = NSImage(systemSymbolName: "keyboard", accessibilityDescription: "KeyTone 离线键音")
+        statusItem.button?.image = NSImage(systemSymbolName: "keyboard", accessibilityDescription: "Lyra 离线键音")
         let menu = NSMenu()
-        let settings = NSMenuItem(title: "打开 KeyTone…", action: #selector(showWindow), keyEquivalent: "")
+        let settings = NSMenuItem(title: "打开 Lyra…", action: #selector(showWindow), keyEquivalent: "")
         settings.target = self; menu.addItem(settings)
         muteMenu = NSMenuItem(title: "静音", action: #selector(toggleMute), keyEquivalent: "")
         muteMenu.target = self; menu.addItem(muteMenu)
         menu.addItem(.separator())
-        let quit = NSMenuItem(title: "退出 KeyTone", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+        let quit = NSMenuItem(title: "退出 Lyra", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         quit.target = NSApp; menu.addItem(quit)
         statusItem.menu = menu
         let mainMenu = NSMenu(); let appMenu = NSMenu(); let root = NSMenuItem(); root.submenu = appMenu
-        appMenu.addItem(withTitle: "退出 KeyTone", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+        appMenu.addItem(withTitle: "退出 Lyra", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         mainMenu.addItem(root); NSApp.mainMenu = mainMenu
     }
     private func text(_ value: String, size: CGFloat = 13, secondary: Bool = false) -> NSTextField {
@@ -319,7 +319,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     private func createWindow() {
         window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 500, height: 740),
                           styleMask: [.titled, .closable, .miniaturizable], backing: .buffered, defer: false)
-        window.title = "KeyTone · 离线键音"; window.delegate = self; window.center()
+        window.title = "Lyra · 天琴座"; window.delegate = self; window.center()
         let content = window.contentView!
         let title = text("让每次敲击都有回响", size: 24); title.font = .systemFont(ofSize: 24, weight: .semibold)
         selector.addItems(withTitles: packs.map(\.name)); selector.target = self; selector.action = #selector(selectPack)
@@ -375,7 +375,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     private func updatePermission() {
         syncLoginStatus()
         if CGPreflightListenEventAccess() {
-            statusLabel.stringValue = listener.start() ? "已就绪：在任意应用中打字即可发声。" : "权限已开启，但监听未启动；请退出并重新打开 KeyTone。"
+            statusLabel.stringValue = listener.start() ? "已就绪：在任意应用中打字即可发声。" : "权限已开启，但监听未启动；请退出并重新打开 Lyra。"
         } else {
             listener.stop(); statusLabel.stringValue = "尚未开启输入监控。可以先点击“试听键盘”。"
         }
@@ -454,7 +454,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             }
         } catch {
             let alert = NSAlert(); alert.messageText = "无法更改自动启动"
-            alert.informativeText = "系统未完成设置：\(error.localizedDescription)\n可在系统设置的“登录项与扩展”中查看 KeyTone。"
+            alert.informativeText = "系统未完成设置：\(error.localizedDescription)\n可在系统设置的“登录项与扩展”中查看 Lyra。"
             alert.addButton(withTitle: "知道了"); alert.runModal()
         }
         syncLoginStatus()
